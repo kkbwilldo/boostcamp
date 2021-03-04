@@ -11,7 +11,7 @@ priority_queue<int> pq;
 
 int main() {
 
-	freopen("test.txt", "r", stdin);
+	//freopen("test.txt", "r", stdin);
 	scanf("%d %d", &N, &K);
 
 	for(int i =0; i < N; i++){
