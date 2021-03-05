@@ -11,7 +11,7 @@ for i in range(3, 13):
         day_dictionary.append(day_dictionary[i-1] + 31)
     else:
         day_dictionary.append(day_dictionary[i-1] + 30)
-
+# print(day_dictionary)
 
 flower = [list(map(int, stdin.readline().split())) for _ in range(N)]
 
@@ -24,10 +24,11 @@ for j in range(len(flower)):
 arr.sort(key=lambda x:(x[0], x[1]))
 
 answer = []
-i = day_dictionary[2]
+i = day_dictionary[2] + 1
 idx = -1
 changed = False
 chk = 0
+# print(arr, i)
 
 while i <= 334 and idx < N:
     changed = False
@@ -37,8 +38,8 @@ while i <= 334 and idx < N:
         
         if arr[k][0] > i:
             break
-        if chk < flower[k][1]:
-            chk = flower[k][1]
+        if chk < arr[k][1]:
+            chk = arr[k][1]
             idx = k
             changed = True
     
