@@ -3,7 +3,6 @@ from collections import deque
 
 
 N, M = map(int, stdin.readline().split())
-red, blue, hole = None, None, None
 board = [list(map(str,stdin.readline().rstrip('\n'))) for _ in range(N)]
 
 # 빨간 구슬 2차원 + 파란 구슬 2차원
@@ -12,11 +11,11 @@ visited = [[[[False] * M for _ in range(N)] for _ in range(M)] for _ in range(N)
 q = deque()
 
 for n in range(N):
-    
-    if 'R' in board[n]:
-        red = [n, board[n].index('R')]
-    if 'B' in board[n]:
-        blue = [n, board[n].index('B')]
+    for m in range(M):
+        if board[n][m] == 'R':
+            red = [n,m]
+        if board[n][m] == "B":
+            blue = [n,m]
     
 
 # 상하좌우 이동
@@ -24,7 +23,7 @@ dy = [1, 0, -1, 0]
 dx = [0, 1, 0, -1]
 
 # 빨간 구슬과 파란 구슨 위치 True
-visited[red[0]][red[1]][blue[0]][blue[0]] = True
+visited[red[0]][red[1]][blue[0]][blue[1]] = True
 # 시작 값 queue append
 q.append((red[0], red[1], blue[0], blue[1], 1))
 
