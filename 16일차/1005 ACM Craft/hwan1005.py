@@ -6,7 +6,7 @@ T = int(stdin.readline())
 for _ in range(T):
     
     N, K = map(int, stdin.readline().split())
-    dp = [0] + list(map(int, stdin.readline().split()))
+    D = [0] + list(map(int, stdin.readline().split()))
     
     sequence = [0] * (N+1)
     indegree = [0] * (N+1)
@@ -22,7 +22,7 @@ for _ in range(T):
     dq = deque()
     for i in range(1, N+1):
         if not indegree[i]:
-            sequence[i] = dp[i]
+            sequence[i] = D[i]
             dq.append(i)
 
     for _ in range(N):
@@ -32,7 +32,7 @@ for _ in range(T):
         target = dq.popleft()
 
         for x in adjList[target]:
-            sequence[x] = max(sequence[x], sequence[target] + dp[x])
+            sequence[x] = max(sequence[x], sequence[target] + D[x])
             indegree[x] -= 1
 
             if not indegree[x]:
