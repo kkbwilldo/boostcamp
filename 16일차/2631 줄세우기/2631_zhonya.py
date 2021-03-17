@@ -8,5 +8,4 @@ for idx,var in enumerate(input_list):
         for j in range(0,idx):
             if input_list[j]<var and dp[j]>=dp[idx]:
                 dp[idx]=dp[j]+1
-print(dp)
 print(N-max(dp))
